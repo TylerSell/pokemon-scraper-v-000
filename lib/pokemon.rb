@@ -12,8 +12,13 @@ def self.save(name, type, db)
 end
 
 def self.find(id, db)
-  poke_info = db.execute("SELECT * FROM pokemon WHERE id = ?", id).first
-  Pokemon.new(poke_info)
+  poke_info = db.execute("SELECT * FROM pokemon WHERE id = ?", id)
+  new_poke = self.new(poke_info)
+  new_poke.id = poke_info[0][0]
+  new_poke.name = poke_info[0][1]
+  new_poke.type = poke_info[0][2]
+  new_poke.hp = poke_info[0][3]
+  return new_poke
 end
 
 
