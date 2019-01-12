@@ -6,7 +6,7 @@ def initialize
   
 end
 
-def self.save
+def self.save(pk_name, pk_type, db)
   
 end
 
